@@ -33,11 +33,7 @@ do[ \n\t\r] {return(DO);}
 
 program[ \n\t\r] {return(PROGRAM);}
 
-var[ \n\t\r] {
-                yylval.sval = malloc(strlen(yytext));
-                strncpy(yylval.sval, trimString(yytext), strlen(yytext));
-                return(VAR);
-                }
+var[ \n\t\r] {return(VAR);}
 
 as[ \n\t\r] {return(AS);}
 
@@ -78,7 +74,6 @@ bool[ \n\t\r] {return(BOOL);}
                 strncpy(yylval.sval, trimString(yytext), strlen(yytext));
                 return(OP4);}
 %%
-
 
 
 
